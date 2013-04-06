@@ -19,11 +19,11 @@ function! s:PerldocView()
   let cwd = getcwd()
 
   if !bufexists(s:buf_nr)
-    leftabove new
+    rightbelow vnew
     file `="[Perldoc]"`
     let s:buf_nr = bufnr('%')
   elseif bufwinnr(s:buf_nr) == -1
-    leftabove split
+    rightbelow vsplit
     execute s:buf_nr . 'buffer'
     delete _
   elseif bufwinnr(s:buf_nr) != bufwinnr('%')
